@@ -284,6 +284,8 @@ main {
   .options {
     transform: translateY(70px);
     align-items: flex-start;
+    min-height: unset;
+    height: 100%;
   }
   .option {
     width: 140px;
