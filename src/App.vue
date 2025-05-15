@@ -390,7 +390,7 @@ main {
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
     row-gap: 0rem;
-    column-gap: 0.9rem;
+    column-gap: 0.5rem;
     width: 100%;
   }
   .pick.player {
