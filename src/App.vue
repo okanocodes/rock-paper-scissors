@@ -281,6 +281,10 @@ main {
 }
 
 @media screen and (max-width: 450px) {
+  .options {
+    transform: translateY(70px);
+    align-items: flex-start;
+  }
   .option {
     width: 140px;
   }
