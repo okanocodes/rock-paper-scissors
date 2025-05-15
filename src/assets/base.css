@@ -1,0 +1,75 @@
+/* color palette from <https://github.com/vuejs/theme> */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  color: white;
+  background: hsl(214, 47%, 23%);
+  background: radial-gradient(circle 125vh at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-repeat: no-repeat;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* @media screen and (max-width: 450px) {
+  body {
+    background-color: blue;
+  }
+} */
+
+button {
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize line-height. Cannot be changed from normal in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable input types in iOS */
+  -webkit-appearance: none;
+}
+.reset-Button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.reset-Button:focus {
+  outline: none;
+}
+.reset-Button:focus:not(:focus-visible) {
+  outline: none;
+}
+.reset-Button:focus:not(:-moz-focusring) {
+  outline: none;
+}
