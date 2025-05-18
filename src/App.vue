@@ -47,9 +47,14 @@ const canPick = ref(true)
 
 function selectOption(value: PlayOption, e: Event) {
   if (!canPick.value) return
-  const clickedElement = e.currentTarget as HTMLElement
-  clickedElement.style.viewTransitionName = 'player-option'
   playerSelection.value = value
+
+  if (!document.startViewTransition) {
+    gameState.value = 'play'
+    pickComputerOption()
+    setGameResult()
+    return
+  }
 
   document.startViewTransition(() => {
     gameState.value = 'play'
@@ -74,6 +79,7 @@ function setWinner() {
     scoreStore.increment()
   } else {
     gameResult.value = 'lose'
+    scoreStore.decrement()
   }
 }
 
@@ -84,8 +90,8 @@ function setGameResult() {
 }
 
 function resetGame() {
-  const previous = document.querySelector('[style*="view-transition-name"]') as HTMLElement | null
-  if (previous) previous.style.viewTransitionName = ''
+  // const previous = document.querySelector('[style*="view-transition-name"]') as HTMLElement | null
+  // if (previous) previous.style.viewTransitionName = ''
 
   target.value = null
   playerSelection.value = null
@@ -113,6 +119,7 @@ function resetGame() {
               :key="index"
               :class="`option ${option.name}-bg ${option.name}-position`"
               :aria-label="`${option.name}`"
+              :style="{ viewTransitionName: option.name }"
             ></button>
           </div>
         </div>
@@ -124,7 +131,7 @@ function resetGame() {
             <h2>You Picked</h2>
             <div
               :class="`option ${playerSelection?.name}-bg`"
-              :style="{ viewTransitionName: 'player-option' }"
+              :style="{ viewTransitionName: playerSelection?.name }"
             >
               <div class="shadow-circles" v-if="gameResult === 'win'">
                 <div class="circle circle__one"></div>
