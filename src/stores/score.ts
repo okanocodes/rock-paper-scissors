@@ -8,6 +8,9 @@ export const useScoreStore = defineStore('score', () => {
   function increment() {
     count.value++
   }
+  function decrement() {
+    count.value--
+  }
 
-  return { count, increment }
+  return { count, increment, decrement }
 })
